@@ -14,4 +14,8 @@ angular.module("socially").controller("PartyDetailsCtrl", ['$scope', '$statePara
     $scope.party.reset();
   };
 
+  $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+
+  $scope.party = $meteor.object(Parties, $stateParams.partyId).subscribe('parties');
+
 }]);
