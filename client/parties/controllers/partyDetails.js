@@ -25,4 +25,11 @@ angular.module("socially").controller("PartyDetailsCtrl", ['$scope', '$statePara
       subscriptionHandle.stop();
     });
 
+    $scope.canInvite = function (){
+      if (!scope.party)
+        return false;
+
+      return !$scope.party.public && $scope.party.ownder === Meteor.userId();
+    };
+
   }]);
